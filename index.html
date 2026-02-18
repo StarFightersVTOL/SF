@@ -7,114 +7,230 @@
 <link rel="icon" type="image/png" href="https://kephost.net/p/MjI5MDg2MQ.png">
 
 <style>
+
+#lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 40px black;
+}
+
 body {
-    background-color: rgb(17,17,17);
+    background: #111;
     color: white;
-    font-family: serif;
+    font-family: "Segoe UI", Tahoma, sans-serif;
     margin: 0;
     text-align: center;
 }
 
-hr {
-    border: 1px solid yellow;
-    width: 100%;
+.topline {
+    height: 4px;
+    background: linear-gradient(90deg, yellow, orange);
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
+    padding: 30px 20px;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: yellow;
+    text-shadow: 0 0 15px rgba(255,255,0,0.6);
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.section {
+    margin: 50px 0;
 }
 
 .images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .images img {
     width: 100%;
     max-width: 450px;
-    height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.images img:hover {
+    transform: scale(1.03);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 40px;
-    font-size: large;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-table, th, td {
-    border: 1px solid yellow;
-    padding: 10px;
+th {
+    background: #222;
+    color: yellow;
+    font-size: 1.3rem;
+    padding: 15px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+}
+
+tr:hover {
+    background: #262626;
 }
 
 .footer {
-    background-color: rgb(26,26,26);
-    margin-top: 50px;
-    padding: 30px;
+    background: #1a1a1a;
+    margin-top: 60px;
+    padding: 40px 20px;
 }
 
-a {
-    color: yellow;
-    font-size: x-large;
+.discord-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: black;
+    background: yellow;
+    border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
+
+.discord-btn:hover {
+    background: orange;
+    transform: scale(1.05);
+}
+
+.small {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: 20px;
+}
+
 </style>
+
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
 </head>
 
 <body>
 
+<div class="topline"></div>
+
 <div class="container">
 
-<hr>
-
-<p style="font-size: x-large;">
-We are the StarFighters, a military group who goes out onto missions with the EF-24G in VTOL VR.
-</p>
-
-<p style="font-style: italic;">
-<u>We are currently recruiting members, so if you are interested, go to the bottom of the page.</u>
-</p>
-
-<hr>
-
-<p style="font-size: x-large;">Some pictures of us:</p>
-
-<div class="images">
-    <img src="https://kephost.net/p/MjI5MDgyNA.png">
-    <img src="https://kephost.net/p/MjI5MDgyNQ.png">
+<div class="title">STARFIGHTERS</div>
+<div class="subtitle">
+<b>EF-24G VTOL VR Operations Group</b>
 </div>
 
-<hr>
+<div class="section">
+
+<p>
+We are the StarFighters, a military aviation group that performs missions
+using the EF-24G in VTOL VR.
+</p>
+
+<p style="font-style: italic; color: yellow;">
+We are currently recruiting new members — join us below.
+</p>
+
+</div>
+
+
+<div class="section">
+<h2>Gallery</h2>
+
+<div class="images">
+    <img src="https://kephost.net/p/MjI5MDgyNA.png" onclick="openLightbox(this.src)">
+    <img src="https://kephost.net/p/MjI5MDgyNQ.png" onclick="openLightbox(this.src)">
+</div>
+
+</div>
+
+
+<div class="section">
 
 <table>
 <tr>
-    <th colspan="2">Our current line-up</th>
+    <th colspan="2">Current Line-Up</th>
 </tr>
 <tr><td>#1</td><td>Jaxson "Tech"</td></tr>
 <tr><td>#2</td><td>Gery "Gamble"</td></tr>
 <tr><td>#3</td><td>Vix "Vapor"</td></tr>
-<tr><td>#4</td><td></td></tr>
-<tr><td>#5</td><td></td></tr>
+<tr><td>#4</td><td>Open Slot</td></tr>
+<tr><td>#5</td><td>Open Slot</td></tr>
 </table>
 
 </div>
 
+</div>
+
+
 <div class="footer">
-<p>To join us, all you have to do is join our discord, and we'll help you from there.</p>
 
-<a href="https://discord.gg/FepuMt9DU4">Discord link</a>
+<h2>Joining the StarFighters</h2>
 
-<p style="font-size: small; margin-top:20px;">
-Made by: Gery (Will get a lot of improvements)
+<p>
+To join us, simply enter our Discord server and we will guide you from there.
 </p>
+
+<a class="discord-btn" href="https://discord.gg/FepuMt9DU4">
+Join Discord
+</a>
+
+<div class="small">
+Made by: Gery (More improvements coming soon)
+</div>
+
 </div>
 
 </body>
 </html>
-
-
